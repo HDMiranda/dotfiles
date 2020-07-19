@@ -1,0 +1,8 @@
+[Defaults]
+Profile=Padrão
+
+[PROFILE_Default]
+EmailClient=/usr/bin/google-chrome-stable
+
+[PROFILE_Padrão]
+ServerType=

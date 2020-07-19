@@ -1,0 +1,99 @@
+[global_config]
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = DroidSansMono Nerd Font Mono Bold 11
+    scrollbar_position = hidden
+    scrollback_lines = 0
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = True
+      size = 1920, 1080
+      title = hardy@hardy-BRQ: ~
+      last_active_term = 378f87e7-5cb2-4db0-b18a-cf13a7d8fdae
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 800
+      ratio = 0.7441860465116279
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 378f87e7-5cb2-4db0-b18a-cf13a7d8fdae
+    [[[child3]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 958
+      ratio = 0.5002610966057441
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = a043062a-80e6-435a-a1f6-541a5f3425dc
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = 96fff723-7410-4584-b040-64575d53bb5c
+  [[Code Middle]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = True
+      size = 1920, 1080
+      title = hardy@hardy-BRQ: ~
+      last_active_term = 378f87e7-5cb2-4db0-b18a-cf13a7d8fdae
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 800
+      ratio = 0.7441860465116279
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 378f87e7-5cb2-4db0-b18a-cf13a7d8fdae
+    [[[child3]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 958
+      ratio = 0.5002610966057441
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = a043062a-80e6-435a-a1f6-541a5f3425dc
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = 96fff723-7410-4584-b040-64575d53bb5c
+[plugins]

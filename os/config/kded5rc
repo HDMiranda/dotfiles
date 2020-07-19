@@ -1,0 +1,5 @@
+[Module-bluedevil]
+autoload=false
+
+[Module-device_automounter]
+autoload=false

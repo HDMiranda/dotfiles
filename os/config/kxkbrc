@@ -1,0 +1,13 @@
+[Layout]
+DisplayNames=,
+LayoutList=us(intl),br(thinkpad)
+LayoutLoopCount=-1
+Model=pc101
+Options=grp_led:caps,ctrl:nocaps,shift:both_capslock_cancel
+ResetOldOptions=true
+ShowFlag=false
+ShowLabel=true
+ShowLayoutIndicator=true
+ShowSingle=true
+SwitchMode=Global
+Use=true

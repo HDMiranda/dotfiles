@@ -1,0 +1,6 @@
+[user]
+	name = Hardy Miranda
+[credential]
+	helper = store
+[merge]
+	tool = vimdiff

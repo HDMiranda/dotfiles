@@ -1,0 +1,13 @@
+[Added Associations]
+image/svg+xml=org.inkscape.Inkscape.desktop;gimp.desktop;org.kde.kate.desktop;okularApplication_txt.desktop;chromium.desktop;firefox.desktop;google-chrome.desktop;firefox-developer-edition.desktop;visual-studio-code.desktop;nvim.desktop;vim.desktop;
+text/html=google-chrome.desktop;firefox.desktop;chromium.desktop;org.kde.kate.desktop;okularApplication_txt.desktop;nvim.desktop;visual-studio-code.desktop;
+
+[Default Applications]
+image/svg+xml=org.inkscape.Inkscape.desktop;
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
+x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/slack=slack.desktop

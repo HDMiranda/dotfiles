@@ -1,0 +1,156 @@
+[DownloadDialog Settings]
+Height 1080=477
+Width 1920=700
+
+[FileDialogSize]
+Height 768=586
+Width 1366=980
+
+[KFileDialog Settings]
+Recent Files[$e]=f2c0431a2a9029d36eb76931ada7af18.jpg,file:$HOME/Imagens/unnamed.gif,file:$HOME/Imagens/c94266ef81312ec1fc55031d359fa049.gif,file:$HOME/Imagens/sXcqYZ.jpeg,file:$HOME/Imagens/f2c0431a2a9029d36eb76931ada7af18.jpg
+Recent URLs[$e]=file:$HOME/Imagens/
+iconViewIconSize=100
+
+[KPropertiesDialog]
+Height 1080=451
+Height 768=448
+Width 1366=415
+Width 1920=412
+
+[PlasmaRunnerManager]
+LaunchCounts=1 services_kcm_activities.desktop,1 services_pamac-updater.desktop,1 services_msm_keyboard.desktop,1 services_kcm_keyboard.desktop,1 services_kcm_pulseaudio.desktop,1 services_powerdevilprofilesconfig.desktop,1 services_autostart.desktop,4 services_org.kde.konsole.desktop,1 services_Zoom.desktop
+pluginWhiteList=desktopsessions,services,places,PowerDevil,calculator,unitconverter,shell,bookmarks,recentdocuments,locations,baloosearch
+
+[PlasmaViews][Panel 1]
+alignment=132
+panelVisibility=1
+
+[PlasmaViews][Panel 1][Defaults]
+minLength=116
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1024]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1152]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1200]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1280]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1366]
+minLength=116
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1440]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1600]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1680]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1900]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1916]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal1920]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal2048]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal800]
+thickness=45
+
+[PlasmaViews][Panel 1][Horizontal864]
+thickness=45
+
+[PlasmaViews][Panel 118]
+alignment=132
+
+[PlasmaViews][Panel 118][Defaults]
+maxLength=3840
+minLength=3840
+thickness=46
+
+[PlasmaViews][Panel 118][Horizontal1920]
+maxLength=1920
+minLength=1920
+thickness=27
+
+[PlasmaViews][Panel 118][Horizontal3840]
+maxLength=3840
+minLength=3840
+thickness=46
+
+[PlasmaViews][Panel 137]
+alignment=132
+
+[PlasmaViews][Panel 137][Defaults]
+maxLength=1920
+minLength=112
+thickness=110
+
+[PlasmaViews][Panel 137][Horizontal1920]
+maxLength=1920
+minLength=112
+thickness=110
+
+[PlasmaViews][Panel 148]
+alignment=132
+panelVisibility=1
+
+[PlasmaViews][Panel 148][Defaults]
+maxLength=1920
+minLength=112
+thickness=50
+
+[PlasmaViews][Panel 148][Horizontal1920]
+maxLength=1920
+minLength=112
+thickness=50
+
+[PlasmaViews][Panel 148][Horizontal3840]
+thickness=50
+
+[PlasmaViews][Panel 46][Defaults]
+thickness=26
+
+[PlasmaViews][Panel 46][Horizontal1366]
+thickness=26
+
+[PlasmaViews][Panel 46][Horizontal1920]
+thickness=26
+
+[PlasmaViews][Panel 79][Defaults]
+thickness=39
+
+[PlasmaViews][Panel 79][Horizontal1920]
+thickness=39
+
+[PlasmaViews][Panel 99]
+alignment=132
+panelVisibility=1
+
+[PlasmaViews][Panel 99][Defaults]
+minLength=112
+thickness=39
+
+[PlasmaViews][Panel 99][Horizontal1920]
+minLength=112
+thickness=39
+
+[ScreenConnectors]
+0=HDMI1
+1=:0.0
+2=eDP1
+
+[Updates]
+performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js

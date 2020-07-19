@@ -1,0 +1,39 @@
+[$Version]
+update_info=gwenview.upd:SideBar_StatusBar_Rename,gwenview.upd:ImageView_AlphaBackgroundMode_Update,gwenview.upd:DeleteThumbnailSetting_Rename
+
+[KFileDialog Settings]
+iconViewIconSize=43
+
+[MainWindow]
+Height 1080=858
+Height 768=480
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABigAAAM0AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1366=879
+Width 1920=1576
+
+[Recent Files]
+File1[$e]=$HOME/Imagens/Screenshot_20200212_160525.png
+File10[$e]=$HOME/Downloads/image (1).png
+File2[$e]=$HOME/Imagens/palheta@3x.png
+File3[$e]=$HOME/Imagens/palheta.png
+File4[$e]=$HOME/Documentos/Comprovante_extra.jpeg
+File5[$e]=$HOME/Imagens/Recaptcha-invisible.gif
+File6[$e]=$HOME/Imagens/Imagem do iOS.jpg
+File7[$e]=$HOME/Imagens/giphy-downsized.gif
+File8[$e]=$HOME/Imagens/ratin.gif
+File9[$e]=$HOME/Downloads/image (2).png
+Name1[$e]=Screenshot_20200212_160525.png
+Name10[$e]=image (1).png
+Name2[$e]=palheta@3x.png
+Name3[$e]=palheta.png
+Name4[$e]=Comprovante_extra.jpeg
+Name5[$e]=Recaptcha-invisible.gif
+Name6[$e]=Imagem do iOS.jpg
+Name7[$e]=giphy-downsized.gif
+Name8[$e]=ratin.gif
+Name9[$e]=image (2).png
+
+[SideBar]
+SideBarSplitterSizes=242,1331

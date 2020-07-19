@@ -1,0 +1,28 @@
+[ExtractDialog]
+DirHistory[$e]=$HOME/Documentos/
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME,file:$HOME
+detailViewIconSize=0
+
+[MainWindow]
+Height 768=480
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+Width 1366=640
+splitterSizes=426,213
+
+[Recent Files]
+File1[$e]=$HOME/Documentos/Exame-VINDI-pagamento.zip
+File2[$e]=$HOME/Downloads/InconsolataGo.zip
+File3[$e]=$HOME/Downloads/LOGO _ Exame.zip
+File4[$e]=$HOME/Downloads/wpultra.zip
+File5[$e]=$HOME/Downloads/APIS_Endpoints_Evidencias.7z
+File6[$e]=$HOME/Downloads/websigner-setup-64.deb
+Name1[$e]=Exame-VINDI-pagamento.zip
+Name2[$e]=InconsolataGo.zip
+Name3[$e]=LOGO _ Exame.zip
+Name4[$e]=wpultra.zip
+Name5[$e]=APIS_Endpoints_Evidencias.7z
+Name6[$e]=websigner-setup-64.deb

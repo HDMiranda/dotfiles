@@ -1,0 +1,36 @@
+[KPropertiesDialog]
+Height 1080=444
+Width 1920=512
+
+[LatteSettingsDialog]
+downloadWindowSize=800,550
+windowSize=700,667
+
+[LatteSettingsDialog][TabLayouts]
+columnWidths=48,83,81,32
+sortColumn=3
+sortOrder=0
+
+[PlasmaRunnerManager]
+LaunchCounts=
+pluginWhiteList=services
+
+[PlasmaThemeExtended]
+outlineWidth=1
+
+[ScreenConnectors]
+10=HDMI1
+11=eDP1
+
+[UniversalSettings]
+badges3DStyle=false
+canDisableBorders=true
+currentLayout=Default
+lastNonAssignedLayout=Default
+launchers=
+memoryUsage=0
+metaPressAndHoldEnabled=true
+mouseSensitivity=2
+screenTrackerInterval=2500
+showInfoWindow=true
+version=2

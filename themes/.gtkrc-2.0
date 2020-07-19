@@ -1,0 +1,15 @@
+gtk-enable-animations=1
+
+gtk-primary-button-warps-slider=0
+
+gtk-cursor-theme-name="Layan-border-cursors"
+
+
+gtk-font-name="BitstreamVeraSansMono Nerd Font,  11"
+gtk-theme-name="Breath-Dark"
+gtk-icon-theme-name="Flatery-Indigo-Dark"
+gtk-fallback-icon-theme="hicolor"
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-menu-images=1
+gtk-button-images=1
+

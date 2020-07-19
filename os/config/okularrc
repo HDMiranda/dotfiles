@@ -1,0 +1,12 @@
+[Desktop Entry]
+FullScreen=false
+
+[MainWindow]
+Height 768=513
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAG9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1366=640
+
+[Recent Files]
+File1[$e]=$HOME/Imagens/icons/ic-menu.svg
+Name1[$e]=ic-menu.svg

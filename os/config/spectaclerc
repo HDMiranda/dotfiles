@@ -1,0 +1,35 @@
+[$Version]
+update_info=spectacle_newConfig.upd:spectacle-new-config
+
+[General]
+alwaysRememberRegion=true
+autoSaveImage=true
+copyImageToClipboard=true
+printKeyActionRunning=FocusWindow
+rememberLastRectangularRegion=false
+showMagnifier=false
+useLightMaskColour=false
+useReleaseToCapture=false
+
+[GuiConfig]
+captureDelay=2
+captureMode=5
+includeDecorations=false
+includePointer=false
+window-position=159,321
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Imagens/Screenshot_20200212_160525.png,file:$HOME/Imagens/Screenshot_20200617_194823.png,file:$HOME/Imagens/Screenshot_20200606_185924.png,file:$HOME/Imagens/Screenshot_20200606_185841.png,file:$HOME/Imagens/Screenshot_20200606_185803.png,file:$HOME/Imagens/Screenshot_20200423_104207.png,file:$HOME/Imagens/Screenshot_20200409_132459.png
+Recent URLs[$e]=file:$HOME/Imagens/
+detailViewIconSize=0
+iconViewIconSize=43
+
+[Save]
+compressionQuality=90
+copySaveLocation=false
+defaultSaveImageFormat=png
+defaultSaveLocation=file:///home/hardy/ScreenShots
+lastSaveAsLocation=file:///home/hardy/Imagens/Screenshot_20200617_194823.png
+lastSaveLocation=file:///home/hardy/ScreenShots/20200717_141644.png
+lastUsedSaveMode=0
+saveFilenameFormat=%Y%M%D_%H%m%S_%T

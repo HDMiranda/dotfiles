@@ -1,0 +1,52 @@
+[1]
+Description=Configurações de aplicativo para obinskit
+clientmachine=localhost
+clientmachinematch=0
+opacityactive=95
+opacityactiverule=2
+wmclass=obinskit
+wmclasscomplete=false
+wmclassmatch=1
+
+[2]
+Description=Configurações de aplicativo para discord
+clientmachine=localhost
+clientmachinematch=0
+opacityactive=90
+opacityactiverule=2
+wmclass=discord
+wmclasscomplete=false
+wmclassmatch=1
+
+[3]
+Description=Configurações de aplicativo para slack
+clientmachine=localhost
+clientmachinematch=0
+opacityactive=90
+opacityactiverule=2
+wmclass=slack
+wmclasscomplete=false
+wmclassmatch=1
+
+[4]
+Description=Configurações de aplicativo para dolphin
+clientmachine=localhost
+clientmachinematch=0
+opacityactive=90
+opacityactiverule=2
+wmclass=dolphin
+wmclasscomplete=false
+wmclassmatch=1
+
+[5]
+Description=Configurações de aplicativo para microsoft teams - preview
+clientmachine=localhost
+clientmachinematch=0
+opacityactive=95
+opacityactiverule=2
+wmclass=microsoft teams - preview
+wmclasscomplete=false
+wmclassmatch=1
+
+[General]
+count=5

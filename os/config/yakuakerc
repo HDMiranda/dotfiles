@@ -1,0 +1,29 @@
+[Appearance]
+BackgroundColor=0,43,54
+BackgroundColorOpacity=70
+Skin=breath2
+TerminalHighlightOnManualActivation=true
+Translucency=true
+
+[Behavior]
+FocusFollowsMouse=true
+
+[Desktop Entry]
+DefaultProfile=
+
+[DownloadDialog Settings]
+Height 1080=477
+Width 1920=700
+
+[Favorite Profiles]
+Favorites=
+
+[KFileDialog Settings]
+detailViewIconSize=0
+
+[Window]
+DynamicTabTitles=true
+Height=82
+KeepOpen=false
+Screen=1
+Width=80

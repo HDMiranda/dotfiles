@@ -1,0 +1,8 @@
+[Adapters]
+C0:B5:D7:A2:46:2C_powered=true
+
+[Devices]
+connectedDevices=18:04:20:33:09:3D
+
+[General]
+enableGlobalBluetooth=false

@@ -1,0 +1,44 @@
+[ConfigDialog]
+Height 2160=258
+Width 3840=454
+
+[DownloadDialog Settings]
+Height 1080=705
+Width 1920=1174
+
+[KFileDialog Settings]
+Recent Files[$e]=terminator,file:$HOME/Imagens/womm.png,file:$HOME/Imagens/1_43i3RRLJPJHgyMbnAOnxkg.jpeg,file:///usr/bin/terminator
+Recent URLs[$e]=file:$HOME/Imagens/
+detailViewIconSize=0
+iconViewIconSize=43
+
+[KPropertiesDialog]
+Height 1080=444
+Width 1920=496
+
+[Main]
+ActiveView=icon_mode
+
+[MainWindow]
+Height 1080=706
+Height 1440=1383
+Height 2160=999
+Height 768=716
+Height 900=713
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABQAAAAVBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1024=1024
+Width 1366=1366
+Width 1440=1024
+Width 1920=1585
+Width 2560=1280
+Width 3840=1203
+Window-Maximized 768x1366=true
+
+[Open-with settings]
+CompletionMode=1
+History=/usr/bin/terminator,ter
+
+[PlasmaRunnerManager]
+LaunchCounts=
