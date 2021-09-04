@@ -97,14 +97,24 @@ fi
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias btg="cd /home/${USER}/BTG-Exame"
-alias exame="cd /home/${USER}/BTG-Exame/exame-middle"
-alias ggpush-exame='git push exame "$(git_current_branch)"'
-alias ggpull-exame='git pull exame "$(git_current_branch)"'
-alias exame-middle="./scripts/exame-middle.sh"
-alias vpn-aws="/home/${USER}/.connectVPN.sh"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias pp="cd ~/PicPay"
+alias vpn="~/.connectVPN.sh"
 alias gcr='git checkout release'
 alias gglog='git log --graph --oneline --decorate --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all | emojify | less -r'
 alias gcmsge='gcmsg | emojify'
 alias chrome-dev='/usr/bin/google-chrome-stable %U --disable-web-security --allow-running-insecure-content --profile-directory="Profile1" --user-data-dir="/tmp"'
+alias yall='yarn lint && yarn test && yarn build'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export PATH="/usr/local/git/bin:$PATH"
+alias moc="appapa"
+alias "moc dev"="./scripts/moc-client dev"
+alias "moc build"="./scripts/moc-client moc"
+alias "moc run"="./scripts/moc-client run"
+alias "moc setup"="./scripts/moc-client setup"
+alias "moc dev"="./scripts/moc-client dev"
+alias "moc build"="./scripts/moc-client moc"
+alias "moc run"="./scripts/moc-client run"
+alias "moc setup"="./scripts/moc-client setup"
