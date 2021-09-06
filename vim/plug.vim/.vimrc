@@ -52,16 +52,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Generic Programming Support 
 " Plug 'honza/vim-snippets'
 " Plug 'Townk/vim-autoclose'
+Plug 'preservim/nerdcommenter'
 " Plug 'tomtom/tcomment_vim'
 " Plug 'tobyS/vmustache'
 " Plug 'janko-m/vim-test'
-" Plug 'maksimr/vim-jsbeautify'
 " Plug 'posva/vim-vue'
 " 
 " " Markdown / Writting
-" Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
-" Plug 'jtratner/vim-flavored-markdown'
+Plug 'jtratner/vim-flavored-markdown'
 " Plug 'LanguageTool'
 " 
 " " Git Support
@@ -79,19 +79,18 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
 " Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
-" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-" Plug 'junegunn/limelight.vim'
+Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'junegunn/limelight.vim'
 " Plug 'mkarmona/colorsbox'
 " Plug 'romainl/Apprentice'
 " Plug 'Lokaltog/vim-distinguished'
 " Plug 'chriskempson/base16-vim'
-" Plug 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 " Plug 'AlessandroYorba/Sierra'
 " Plug 'daylerees/colour-schemes'
 " Plug 'effkay/argonaut.vim'
 " Plug 'ajh17/Spacegray.vim'
 " Plug 'atelierbram/Base2Tone-vim'
-" Plug 'colepeters/spacemacs-theme.vim'
 " Plug 'lucasteles/SWTC.Vim'
 
 " OSX stupid backspace fix
@@ -104,7 +103,7 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""
 " Configuration Section
 """""""""""""""""""""""""""""""""""""
-
+"
 " Show linenumbers
 set number relativenumber
 set ruler
@@ -264,7 +263,9 @@ xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
 " Shortcuts
-nnoremap <Leader>o :Files<CR> 
+nnoremap <Leader>o :Files %:p:h<CR> 
+nnoremap <Leader>O :GFiles<CR>
+nnoremap <c-p> :Ag<CR> 
 nnoremap <Leader>w :w<CR>
 
 " Insert mode completion
@@ -286,12 +287,12 @@ autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 
 " Disable arrow movement, resize splits instead.
-" if get(g:, 'elite_mode')
-"   nnoremap <Up>    :resize +2<CR>
-"   nnoremap <Down>  :resize -2<CR>
-"   nnoremap <Left>  :vertical resize +2<CR>
-"   nnoremap <Right> :vertical resize -2<CR>
-" endif
+if get(g:, 'elite_mode')
+  nnoremap <Up>    :resize +2<CR>
+  nnoremap <Down>  :resize -2<CR>
+  nnoremap <Left>  :vertical resize +2<CR>
+  nnoremap <Right> :vertical resize -2<CR>
+endif
 
 map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
