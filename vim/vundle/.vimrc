@@ -8,7 +8,7 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+" runtime! archlinux.vim
 
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
@@ -45,7 +45,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'godlygeek/tabular'
-Plugin 'benmills/vimux'
+" Plugin 'benmills/vimux'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'gilsondev/searchtasks.vim'
 Plugin 'tpope/vim-dispatch'
@@ -153,9 +153,9 @@ let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
 
 " Syntastic Configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " Vim-PDV Configuration 
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -191,7 +191,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " Vim-Test Configuration
-let test#strategy = "vimux"
+" let test#strategy = "vimux"
 
 " Fzf Configuration
 " This is the default extra key bindings
