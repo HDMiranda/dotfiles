@@ -146,7 +146,8 @@ set colorcolumn=80,120
 highlight Search guibg=#16c6f2 guifg=black gui=bold
 " highlight Search ctermbg=#16c6f2 ctermfg=black gui=bold
 
-" Startup
+" Startify
+"  Startup
 let g:startify_custom_header = [
       \ '    _   _  ___      ',
       \ '   | | | ||  _ \    ',
@@ -154,6 +155,9 @@ let g:startify_custom_header = [
       \ '   |  _  || |_| |   ',
       \ '   |_| |_||____/    ',
       \ ]
+
+"  Save and close session
+nnoremap <silent><nowait> <space>sq :SClose<CR>
 
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
