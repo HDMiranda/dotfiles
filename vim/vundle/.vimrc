@@ -38,32 +38,32 @@ Plugin 'gmarik/Vundle.vim'
 
 " Utility
 Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'BufOnly.vim'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'SirVer/ultisnips'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf'
+" Plugin 'ervandew/supertab'
+" Plugin 'BufOnly.vim'
+" Plugin 'wesQ3/vim-windowswap'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'junegunn/fzf.vim'
+" Plugin 'junegunn/fzf'
 Plugin 'godlygeek/tabular'
 " Plugin 'benmills/vimux'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'gilsondev/searchtasks.vim'
-Plugin 'tpope/vim-dispatch'
+" Plugin 'jeetsukumaran/vim-buffergator'
+" Plugin 'gilsondev/searchtasks.vim'
+" Plugin 'tpope/vim-dispatch'
 
 " Generic Programming Support 
-Plugin 'honza/vim-snippets'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tobyS/vmustache'
-Plugin 'janko-m/vim-test'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'posva/vim-vue'
+" Plugin 'honza/vim-snippets'
+" Plugin 'Townk/vim-autoclose'
+" Plugin 'tomtom/tcomment_vim'
+" Plugin 'tobyS/vmustache'
+" Plugin 'janko-m/vim-test'
+" Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'posva/vim-vue'
 
 " Markdown / Writting
-Plugin 'reedes/vim-pencil'
+" Plugin 'reedes/vim-pencil'
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'LanguageTool'
+" Plugin 'LanguageTool'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
@@ -72,7 +72,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'jaxbot/github-issues.vim'
 
 " Theme / Interface
-Plugin 'AnsiEsc.vim'
+" Plugin 'AnsiEsc.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -139,8 +139,10 @@ if (has("termguicolors"))
 endif
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme badwolf
-" colorscheme spacemacs-theme
+colorscheme colorsbox-greenish
+
+" Visual aid
+highlight Search guibg=orange guifg=black gui=bold
  
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
@@ -158,7 +160,7 @@ let g:hybrid_reduced_contrast = 1
 " set statusline+=%*
 
 " Vim-PDV Configuration 
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+" let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 
 " Markdown Syntax Support
 augroup markdown
@@ -166,29 +168,12 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-" Github Issues Configuration
-let g:github_access_token = "e6fb845bd306a3ca7f086cef82732d1d5d9ac8e0"
-
-" Vim-Supertab Configuration
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-" Settings for Writting
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
-
-" Vim-pencil Configuration
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
-
 " Vim-UtilSnips Configuration
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " Vim-Test Configuration
 " let test#strategy = "vimux"
@@ -244,8 +229,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " Shortcuts
 nnoremap <Leader>o :Files<CR> 
-nnoremap <Leader>O :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <space>w :w<CR>
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -261,9 +246,9 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 " Vim-PDV Mappings
-autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
-autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
-autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
+" autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
+" autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+" autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 
 " Disable arrow movement, resize splits instead.
 " if get(g:, 'elite_mode')
@@ -279,5 +264,5 @@ map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Vim-Alchemist Mappings
-autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
-autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>
+" autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
+" autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>

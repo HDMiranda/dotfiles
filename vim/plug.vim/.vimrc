@@ -45,6 +45,7 @@ Plug 'junegunn/fzf.vim'
 " Plug 'gilsondev/searchtasks.vim'
 " Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
+Plug 'nvim-lua/plenary.nvim'
 " 
 " " Linting and Sintax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -63,6 +64,7 @@ Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 " Plug 'LanguageTool'
+Plug 'folke/todo-comments.nvim'
 " 
 " " Git Support
 " Plug 'kablamo/vim-git-log'
@@ -123,6 +125,9 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
+" Set Tab and insert mode exit
+inoremap <S-CR> <Esc>
+
 " Enable Elite mode, No ARRRROWWS!!!!
 let g:elite_mode=1
 
@@ -140,6 +145,10 @@ endif
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme gruvbox
 " colorscheme spacemacs-theme
+
+" Quickfix remap
+nnoremap <leader>cn :cn<CR>
+nnoremap <leader>cp :cp<CR>
  
 " Visual aid
 set colorcolumn=80,120
@@ -157,10 +166,12 @@ let g:startify_custom_header = [
       \ ]
 
 "  Save and close session
-nnoremap <silent><nowait> <space>sq :SClose<CR>
+nnoremap <silent><nowait> <space>wq :SClose<CR>
 
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
+
+let g:NERDAltDelims_javascript = 1
 
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -367,7 +378,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :vsp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -475,3 +486,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" Setup todo-comments
+lua << EOF
+  require("todo-comments").setup {}
+EOF
