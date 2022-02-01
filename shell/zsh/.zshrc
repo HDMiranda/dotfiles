@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="garyblessington"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -109,12 +109,19 @@ alias yall='yarn lint && yarn test && yarn build'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export PATH="/usr/local/git/bin:$PATH"
-alias moc="appapa"
-alias "moc dev"="./scripts/moc-client dev"
-alias "moc build"="./scripts/moc-client moc"
-alias "moc run"="./scripts/moc-client run"
-alias "moc setup"="./scripts/moc-client setup"
-alias "moc dev"="./scripts/moc-client dev"
-alias "moc build"="./scripts/moc-client moc"
-alias "moc run"="./scripts/moc-client run"
-alias "moc setup"="./scripts/moc-client setup"
+alias moc="./scripts/moc-client"
+alias nx="./node_modules/.bin/nx"
+alias fera="cd ~/Fera"
+alias pp-herodash-front="cd ~/Picpay/picpay-dev-ms-herodash-front"
+alias pp-herodash-api="cd ~/Picpay/picpay-dev-ms-herodash-api"
+alias pp-monorepo="cd ~/Picpay/picpay-frontend"
+
+# Setup multiple selection for FZF
+# export FZF_DEFAULT_OPTS='--multi --no-height --extended'
+
+alias pp-ecommerce-front="cd ~/Picpay/picpay-dev-ms-ecommerce-front"
+export COMPOSER_AUTH='{"github-oauth": {"github.com": "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"}}'
+
+export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
+alias picpay-login="aws-google-auth"
+alias picpay-aws-ls="cat ~/.aws/config | grep '[' "
