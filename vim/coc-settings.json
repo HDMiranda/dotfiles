@@ -1,0 +1,11 @@
+{
+  "workspace.workspaceFolderCheckCwd": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks",
+  "tsserver.enable": true,
+  "tsserver.enableJavascript": true,
+  "typescript.format.enabled": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.updateImportsOnFileMove.enable": true
+}
