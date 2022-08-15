@@ -33,10 +33,11 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Utility
 Plug 'preservim/nerdtree'
-" Plug 'ervandew/supertab'
 " Plug 'BufOnly.vim'
 " Plug 'wesQ3/vim-windowswap'
-Plug 'SirVer/ultisnips'
+Plug 't9md/vim-choosewin'
+Plug 'weilbith/nerdtree_choosewin-plugin'
+" Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'godlygeek/tabular'
@@ -56,7 +57,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 " Plug 'tomtom/tcomment_vim'
 " Plug 'tobyS/vmustache'
-" Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test'
 " Plug 'posva/vim-vue'
 " 
 " " Markdown / Writting
@@ -160,8 +161,8 @@ highlight Search guibg=#16c6f2 guifg=black gui=bold
 let g:startify_custom_header = [
       \ '    _   _  ___      ',
       \ '   | | | ||  _ \    ',
-      \ '   | |_| || | | |   ',
-      \ '   |  _  || |_| |   ',
+      \ '   |||_| |||| | |   ',
+      \ '   || _  ||||_| |   ',
       \ '   |_| |_||____/    ',
       \ ]
 
@@ -176,9 +177,16 @@ let g:NERDAltDelims_javascript = 1
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 
-let g:airline_theme='hybrid'
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
+
+" Vim-ChooseWin
+" invoke with '-'
+nmap  -  <Plug>(choosewin)
+" Enable tmux-like overlay
+let g:choosewin_overlay_enable = 1
 
 " Syntastic Configuration
 " set statusline+=%#warningmsg#
@@ -197,9 +205,6 @@ augroup END
 " Github Issues Configuration
 let g:github_access_token = ""
 
-" Vim-Supertab Configuration
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
 " Settings for Writting
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
@@ -211,15 +216,8 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
-" Vim-UtilSnips Configuration
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
-
 " Vim-Test Configuration
-let test#strategy = "vimux"
+let test#strategy = "neovim"
 
 " Fzf Configuration
 " This is the default extra key bindings
@@ -268,6 +266,7 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " Mappings configurationn
 """""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
+map <C-N> :NERDTreeFind<CR>
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -350,12 +349,12 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+function! s:CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -369,7 +368,7 @@ endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -379,6 +378,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd :vsp<CR><Plug>(coc-definition)
+nmap <silent> gD :sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -397,7 +397,8 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+nnoremap <silent> Kk :call <Plug>CocActionAsync('highlight')<CR>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -469,7 +470,9 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
+" Mappings for CoC
+" Show current diagnostics
+nnoremap <silent> <leader>? :call CocAction('diagnosticInfo') <CR>
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.

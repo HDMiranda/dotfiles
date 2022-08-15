@@ -1,6 +1,7 @@
 {
   "workspace.workspaceFolderCheckCwd": true,
   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
+  "diagnostic.enableMessage": "jump",
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
   "tsserver.enable": true,
