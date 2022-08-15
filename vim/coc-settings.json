@@ -7,5 +7,6 @@
   "tsserver.enableJavascript": true,
   "typescript.format.enabled": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.updateImportsOnFileMove.enable": true
+  "typescript.updateImportsOnFileMove.enable": true,
+  "svelte.enable-ts-plugin": true
 }

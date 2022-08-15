@@ -56,13 +56,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 " Plug 'tomtom/tcomment_vim'
 " Plug 'tobyS/vmustache'
-" Plug 'janko-m/vim-test'
+ Plug 'janko-m/vim-test'
 " Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-svelte-plugin'
 " 
 " " Markdown / Writting
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
+"
 " Plug 'LanguageTool'
 Plug 'folke/todo-comments.nvim'
 " 
@@ -219,7 +221,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " Vim-Test Configuration
-let test#strategy = "vimux"
+let test#strategy = "neovim"
 
 " Fzf Configuration
 " This is the default extra key bindings
@@ -379,6 +381,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd :vsp<CR><Plug>(coc-definition)
+nmap <silent> gD :sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
