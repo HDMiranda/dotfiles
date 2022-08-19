@@ -59,11 +59,13 @@ Plug 'preservim/nerdcommenter'
 " Plug 'tobyS/vmustache'
 Plug 'janko-m/vim-test'
 " Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-svelte-plugin'
 " 
 " " Markdown / Writting
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
+"
 " Plug 'LanguageTool'
 Plug 'folke/todo-comments.nvim'
 " 

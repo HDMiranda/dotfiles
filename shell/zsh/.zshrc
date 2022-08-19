@@ -125,3 +125,17 @@ export COMPOSER_AUTH='{"github-oauth": {"github.com": "ghp_2k87GBFW3sWj1LVn0zBQ9
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 alias picpay-login="aws-google-auth"
 alias picpay-aws-ls="cat ~/.aws/config | grep '[' "
+
+nx-sellerpanel () {
+  if [[ -n "$1" ]]; then
+    for lib in "$@"
+      do
+        nx $1 seller-panel-$2
+      done
+    else
+      echo "\n    Usage: nx-sellerpanel [param] [lib] \n
+        Ex: \r
+        - nx-sellerpanel test 'services' 'shared' \r
+        - nx-sellerpanel lint 'services' 'shared' 'charge' \n"
+  fi
+}
