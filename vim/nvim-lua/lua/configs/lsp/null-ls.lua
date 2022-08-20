@@ -56,6 +56,7 @@ nls.setup({
     }),
     fmt.prettierd,
     fmt.eslint_d,
+    fmt.phpcsfixer,
     -- fmt.prettier.with({
     --     extra_args = {
     --         '--tab-width=2',
@@ -80,6 +81,7 @@ nls.setup({
     -----------------
     dgn.eslint_d,
     dgn.shellcheck,
+    dgn.phpactor,
     dgn.luacheck.with({
       extra_args = {
         '--globals',
