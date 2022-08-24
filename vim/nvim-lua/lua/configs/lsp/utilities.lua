@@ -37,9 +37,10 @@ end
 ---@param client table
 ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 function U.disable_formatting(client)
-  client.server_capabilities.documentFormattingProvider = false
-  client.server_capabilities.document_range_formatting = false
-  client.server_capabilities.documentRangeFormattingProvider = true
+  client.resolved_capabilities.document_formatting = false  -- nvim 0.7
+  client.server_capabilities.documentFormattingProvider = false  -- nvim 0.8
+  client.server_capabilities.document_range_formatting = false  -- nvim 0.8
+  client.server_capabilities.documentRangeFormattingProvider = true  -- nvim 0.8
 end
 
 -- Enable formatting for servers on neovim 0.7.2
@@ -60,15 +61,28 @@ function U.mappings(buf)
   }
 
   map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  map('n', 'gDh', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  map('n', 'gDj', '<cmd>split<CR><cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  map('n', 'gdh', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  map('n', 'gdj', '<cmd>split<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
   map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  map('n', 'gih', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  map('n', 'gij', '<cmd>split<CR><cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
   map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  map('n', 'grh', '<cmd>vsplit<CR><cmd>lua vim.lsp.buf.references()<CR>', opts)
+  map('n', 'grj', '<cmd>split<CR><cmd>lua vim.lsp.buf.references()<CR>', opts)
+
   map('i', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   -- map('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   -- map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   -- map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  -- map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map('n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
@@ -77,8 +91,8 @@ function U.mappings(buf)
   map('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   map('n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   map('n', ']g', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  -- map('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  -- map('n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
+  map('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  map('n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 end
 
 return U
