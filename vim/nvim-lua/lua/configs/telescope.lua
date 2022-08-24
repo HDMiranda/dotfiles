@@ -85,10 +85,10 @@ end)
 vim.keymap.set('n', '<leader>h', Telescope.help_tags)
 
 -- Fuzzy find active buffers
-vim.keymap.set('n', '\'b', Telescope.buffers)
+vim.keymap.set('n', '<leader>b', Telescope.buffers)
 
 -- Search for string
-vim.keymap.set('n', '\'r', Telescope.live_grep)
+vim.keymap.set('n', '<leader>f', Telescope.live_grep)
 
 -- Fuzzy find changed files in git
-vim.keymap.set('n', '\'c', Telescope.git_status)
+vim.keymap.set('n', '<leader>g', Telescope.git_status)

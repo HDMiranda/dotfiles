@@ -16,6 +16,7 @@ map('n', '<leader>W', '<CMD>wall<CR>')
 -- Quit neovim
 map('n', '<C-Q>', '<CMD>q<CR>')
 map('n', '<leader>wq', '<CMD>wqa<CR>')
+map('n', '<leader>Q', '<CMD>qa!<CR>')
 
 -- leader-o/O inserts blank line below/above
 map('n', '<leader>o', 'o<ESC>')
@@ -70,3 +71,6 @@ map('n', '<leader>sl', ':SessionManager load_session<CR>')
 
 -- Start screen (Alpha)
 map('n', '<C-s>', ':Alpha<CR>')
+
+-- Telescope
+map('n', '<leader>tm', ':Telescope marks<CR>')
