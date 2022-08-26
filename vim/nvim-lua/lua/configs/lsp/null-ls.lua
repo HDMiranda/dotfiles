@@ -67,7 +67,6 @@ nls.setup({
     -- }),
     fmt.rustfmt,
     fmt.gofmt,
-    fmt.zigfmt,
     fmt.shfmt.with({
       extra_args = {
         '-i',
