@@ -79,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# Press esc to use vi commands
+set -o 'vi'
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -94,11 +97,9 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias pp="cd ~/PicPay"
 alias vpn="~/.connectVPN.sh"
 alias gcr='git checkout release'
 alias gglog='git log --graph --oneline --decorate --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all | emojify | less -r'
@@ -109,22 +110,45 @@ alias yall='yarn lint && yarn test && yarn build'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export PATH="/usr/local/git/bin:$PATH"
-alias moc="./scripts/moc-client"
+
 alias nx="./node_modules/.bin/nx"
-alias fera="cd ~/Fera"
-alias pp-herodash-front="cd ~/Picpay/picpay-dev-ms-herodash-front"
-alias pp-herodash-api="cd ~/Picpay/picpay-dev-ms-herodash-api"
-alias pp-monorepo="cd ~/Picpay/picpay-frontend"
 
 # Setup multiple selection for FZF
 # export FZF_DEFAULT_OPTS='--multi --no-height --extended'
 
-alias pp-ecommerce-front="cd ~/Picpay/picpay-dev-ms-ecommerce-front"
-export COMPOSER_AUTH='{"github-oauth": {"github.com": "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"}}'
+# Set locally git token (export GIT_TOKEN='xxxxxx')
+export COMPOSER_AUTH='{"http-basic": {"github.com": {"username": "HDMiranda", "password": "'$GIT_TOKEN'"}}}'
 
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
-alias picpay-login="aws-google-auth"
-alias picpay-aws-ls="cat ~/.aws/config | grep '[' "
+
+# Add ruby gem bin path to environment
+export PATH="/Users/hardy.miranda/.gem/ruby/2.6.0/bin:$PATH"
+
+# Fera
+alias moc="./scripts/moc-client"
+alias fera="cd $FERA_PATH"
+alias moc-client="cd $FERA_PATH/moc/packages/client"
+alias moc-ds="cd $FERA_PATH/moc/packages/designsystem"
+
+# PP
+# Set projects base path locally ($PP_PATH)
+# Set projects prefix ($PP_PREFIX)
+alias pp="cd $PP_PATH"
+alias pp-monorepo="cd $PP_PATH/$PP_PREFIX-frontend"
+alias pp-ecommerce-front="cd $PP_PATH/$PP_PREFIX-dev-ms-ecommerce-front"
+alias pp-herodash-front="cd $PP_PATH/$PP_PREFIX-dev-ms-herodash-front"
+alias pp-mbdash-front="cd $PP_PATH/$PP_PREFIX-dev-ms-mbdash-front"
+alias pp-herodash-api="cd $PP_PATH/$PP_PREFIX-dev-ms-herodash-api"
+alias pp-sellerpanel-api="cd $PP_PATH/$PP_PREFIX-dev-ms-sellerpanel-api"
+alias pp-biz="cd $PP_PATH/$PP_PREFIX-dev-ms-biz"
+alias pp-deeplink="cd $PP_PATH/$PP_PREFIX-dev-ms-deeplink"
+alias pp-dgdash="cd $PP_PATH/$PP_PREFIX-dev-ms-dgdash"
+alias pp-brcode-unique="cd $PP_PATH/ms-brcode-unique"
+alias pp-devtools="cd $PP_PATH/devtools"
+alias pp-helm-charts="cd $PP_PATH/helm-charts"
+alias pp-gatekeeper-providers="cd $PP_PATH/gatekeeper-providers"
+alias pp-login="aws-google-auth"
+alias pp-aws-ls="cat ~/.aws/config | grep '[' "
 
 nx-sellerpanel () {
   if [[ -n "$1" ]]; then
