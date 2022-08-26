@@ -187,10 +187,10 @@ return require('packer').startup({
     require('configs.lualine')
     require('configs.telescope')
     require('configs.session-manager')
+    require('configs.gitsigns')
     require('configs.lsp.nvim-cmp')
     require('configs.lsp.utilities')
     require('configs.lsp.languages')
     require('configs.lsp.null-ls')
-    require('gitsigns').setup()
   end
 })
