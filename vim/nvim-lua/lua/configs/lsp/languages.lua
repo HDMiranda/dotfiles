@@ -17,7 +17,10 @@ local capabilities = U.capabilities()
 ---@param client table
 ---@param buf integer
 local function on_attach(client, buf)
-  -- U.disable_formatting(client)
+  if client.name ~= 'null-ls' then
+    U.disable_formatting(client)
+  end
+
   U.formatting_callback(client, buf)
   U.mappings(buf)
 end
@@ -37,36 +40,10 @@ vim.diagnostic.config({
 
 ---List of the LSP server that don't need special configuration
 local servers = {
-  -- 'css-lsp',
-  -- 'cssmodules-language-server',
-  -- 'tailwindcss-language-server',
   'tsserver', -- Typescript
   'html', -- HTML
   'cssls', -- CSS
   'angularls' -- Angular
-  -- 'bash-language-server', --Bash
-  -- 'chrome-debug-adapter', -- Chrome Debugger
-  -- 'clang-format', -- C/C++ format
-  -- 'clangd', -- C/C++ DAP
-  -- 'deno', -- Deno
-  -- 'dockerfile-language-server',
-  -- 'eslint-lsp',
-  -- 'eslint_d',
-  -- 'json-lsp',
-  -- 'lua-language-server',
-  -- 'markdownlint',
-  -- 'marksman',
-  -- 'prettier',
-  -- 'remark-language-server',
-  -- 'sql-formatter',
-  -- 'sqlfluff',
-  -- 'sqlls',
-  -- 'svelte-language-server',
-  -- 'typescript-language-server',
-  -- 'vim-language-server',
-  -- 'vue-language-server',
-  -- 'yaml-language-server',
-  -- 'yamllint',
 }
 
 for _, server in ipairs(servers) do
@@ -101,7 +78,8 @@ require'lspconfig'.vimls.setup {
     fromRuntimepath = true,
     fromVimruntime = true
   },
-  vimruntime = ''
+  vimruntime = '',
+  on_attach = on_attach
 }
 
 -- Lua
@@ -127,7 +105,8 @@ require'lspconfig'.sumneko_lua.setup {
         enable = false
       }
     }
-  }
+  },
+  on_attach = on_attach
 }
 
 -- PHP

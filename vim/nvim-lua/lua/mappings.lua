@@ -16,6 +16,7 @@ map('n', '<leader>W', '<CMD>wall<CR>')
 -- Quit neovim
 map('n', '<C-Q>', '<CMD>q<CR>')
 map('n', '<leader>wq', '<CMD>wqa<CR>')
+map('n', '<leader>Q', '<CMD>qa!<CR>')
 
 -- leader-o/O inserts blank line below/above
 map('n', '<leader>o', 'o<ESC>')
@@ -70,3 +71,20 @@ map('n', '<leader>sl', ':SessionManager load_session<CR>')
 
 -- Start screen (Alpha)
 map('n', '<C-s>', ':Alpha<CR>')
+
+-- Telescope
+map('n', '<leader>tm', ':Telescope marks<CR>')
+
+map('n', '<leader>th', ':Telescope help_tags<CR>')
+
+-- Fuzzy find active buffers
+map('n', '<leader>tb', ':Telescope buffers<CR>')
+
+-- Search for string
+map('n', '<leader>tf', ':Telescope live_grep<CR>')
+
+-- Fuzzy find changed files in git
+map('n', '<leader>tg', ':Telescope git_status<CR>')
+
+-- List all symbols on the current doc
+map('n', '<leader>so', ':Telescope lsp_document_symbols<CR>')

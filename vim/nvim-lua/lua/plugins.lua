@@ -59,6 +59,9 @@ return require('packer').startup({
     use {
       'lewis6991/gitsigns.nvim'
     }
+    use {
+      'folke/which-key.nvim',
+    }
 
     --------------------------------
     -- LSP, completion and syntax --
@@ -74,6 +77,21 @@ return require('packer').startup({
     use('hrsh7th/cmp-vsnip')
     use('hrsh7th/vim-vsnip')
     use('hrsh7th/cmp-nvim-lsp-signature-help')
+
+    ----------
+    -- Test --
+    ----------
+    use {
+      'nvim-neotest/neotest',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'vim-test/vim-test',
+        'nvim-treesitter/nvim-treesitter',
+        'antoinemadec/FixCursorHold.nvim',
+        'haydenmeade/neotest-jest',
+        'nvim-neotest/neotest-vim-test'
+      }
+    }
 
     ---------------------
     -- File management --
@@ -180,17 +198,18 @@ return require('packer').startup({
     ------------------
     -- Initializers --
     ------------------
-    require('lualine').setup()
     require('mason').setup()
     require('configs.alpha')
     require('configs.treesitter')
     require('configs.lualine')
     require('configs.telescope')
+    require('configs.gitsigns')
     require('configs.session-manager')
     require('configs.lsp.nvim-cmp')
     require('configs.lsp.utilities')
     require('configs.lsp.languages')
     require('configs.lsp.null-ls')
-    require('gitsigns').setup()
+    require('configs.test')
+    require('configs.which-key')
   end
 })
