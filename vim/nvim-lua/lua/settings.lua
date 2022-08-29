@@ -4,6 +4,11 @@ local o = vim.o
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 vim.cmd([[colorscheme base16-everforest]])
+-- vim.cmd([[colorscheme base16-material-ocean]])
+-- vim.cmd([[colorscheme base16-material-palenight]])
+-- vim.cmd([[colorscheme base16-tomorrow-night]])
+-- vim.cmd([[colorscheme base16-eighties]])
+-- vim.cmd([[colorscheme base16-base16-gruvbox-dark-pale]])
 
 o.termguicolors = true
 o.background = 'dark'
