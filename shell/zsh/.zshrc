@@ -122,7 +122,15 @@ export COMPOSER_AUTH='{"http-basic": {"github.com": {"username": "HDMiranda", "p
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 
 # Add ruby gem bin path to environment
+# Mac
 export PATH="/Users/hardy.miranda/.gem/ruby/2.6.0/bin:$PATH"
+# Linux
+export PATH="/home/hardy/.local/share/gem/ruby/3.0.0/bin:$PATH"
+# RVM
+export PATH="/home/hardy/.cache/yay/rvm/src/rvm/:$PATH"
+export PATH="/usr/local/rvm:$PATH"
+export rvm_path="/usr/local/rvm"
+source /etc/profile.d/rvm.sh
 
 # Fera
 alias moc="./scripts/moc-client"
