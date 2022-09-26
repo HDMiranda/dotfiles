@@ -67,6 +67,7 @@ nls.setup({
     -- }),
     fmt.rustfmt,
     fmt.gofmt,
+    fmt.rustywind,
     fmt.shfmt.with({
       extra_args = {
         '-i',
