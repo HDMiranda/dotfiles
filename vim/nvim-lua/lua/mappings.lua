@@ -51,8 +51,8 @@ map('n', '<RIGHT>', '<C-w>>')
 
 -- Open NvimTree
 -- Current File
-map('n', '<C-c>', '<CMD>NvimTreeFindFileToggle<CR>')
-map('i', '<C-c>', '<ESC><CMD>NvimTreeFindFileToggle<CR>')
+map('n', '<C-c>', '<CMD>NvimTreeFindFile<CR>')
+map('i', '<C-c>', '<ESC><CMD>NvimTreeFindFile<CR>')
 -- Toggle
 map('n', '<C-o>', '<CMD>NvimTreeToggle<CR>')
 map('i', '<C-o>', '<ESC><CMD>NvimTreeToggle<CR>')
@@ -86,6 +86,9 @@ map('n', '<leader>tb', ':Telescope buffers<CR>')
 
 -- Search for string
 map('n', '<leader>tf', ':Telescope live_grep<CR>')
+
+-- Search for string in active buffers
+map('n', '<leader>tbf', ':Telescope live_grep({grep_open_files=true})<CR>')
 
 -- Fuzzy find changed files in git
 map('n', '<leader>tg', ':Telescope git_status<CR>')
