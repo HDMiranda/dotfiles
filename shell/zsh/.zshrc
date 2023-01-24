@@ -109,6 +109,7 @@ alias yall='yarn lint && yarn test && yarn build'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/git/bin:$PATH"
 
 alias nx="./node_modules/.bin/nx"
@@ -130,7 +131,7 @@ export PATH="/home/hardy/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export PATH="/home/hardy/.cache/yay/rvm/src/rvm/:$PATH"
 export PATH="/usr/local/rvm:$PATH"
 export rvm_path="/usr/local/rvm"
-source /etc/profile.d/rvm.sh
+# source /etc/profile.d/rvm.sh
 
 # Fera
 alias moc="./scripts/moc-client"
