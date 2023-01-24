@@ -50,8 +50,12 @@ map('n', '<UP>', '<CMD>resize +1<CR>')
 map('n', '<RIGHT>', '<C-w>>')
 
 -- Open NvimTree
-map('n', '<C-o>', '<CMD>NvimTreeFindFileToggle<CR>')
-map('i', '<C-o>', '<ESC><CMD>NvimTreeFindFileToggle<CR>')
+-- Current File
+map('n', '<C-c>', '<CMD>NvimTreeFindFileToggle<CR>')
+map('i', '<C-c>', '<ESC><CMD>NvimTreeFindFileToggle<CR>')
+-- Toggle
+map('n', '<C-o>', '<CMD>NvimTreeToggle<CR>')
+map('i', '<C-o>', '<ESC><CMD>NvimTreeToggle<CR>')
 
 -- Move line up and down in NORMAL and VISUAL modes
 -- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
