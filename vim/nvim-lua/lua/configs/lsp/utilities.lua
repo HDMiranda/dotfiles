@@ -30,7 +30,7 @@ function U.capabilities()
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-  return require('cmp_nvim_lsp').update_capabilities(capabilities)
+  return require('cmp_nvim_lsp').default_capabilities(capabilities)
 end
 
 ---Disable formatting for servers for neovim 0.7.2 | Handled by null-ls
