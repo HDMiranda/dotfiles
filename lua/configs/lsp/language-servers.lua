@@ -1,8 +1,23 @@
 --------------------
 -- Language Setup --
 --------------------
-local lsp = require('lspconfig')
+local lsp = require('lsp-zero').preset("recommended")
+local lspconfig = require('lspconfig')
 local U = require('configs.lsp.utilities')
+
+lsp.ensure_installed({
+  'tsserver',
+  'eslint',
+  'lua_ls',
+  'rust_analyzer',
+  'phpactor',
+})
+
+lsp.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp.default_keymaps({ buffer = bufnr })
+end)
 
 ---Common perf related flags for all the LSP servers
 local flags = {
@@ -10,17 +25,10 @@ local flags = {
   debounce_text_changes = 200
 }
 
----Common capabilities including lsp snippets and autocompletion
-local capabilities = U.capabilities()
-
 ---Common `on_attach` function for LSP servers
 ---@param client table
 ---@param buf integer
 local function on_attach(client, buf)
-  if client.name ~= 'null-ls' then
-    U.disable_formatting(client)
-  end
-
   U.formatting_callback(client, buf)
   U.mappings(buf)
 end
@@ -28,34 +36,23 @@ end
 -- Set LSP logging
 -- vim.lsp.set_log_level(vim.lsp.log_levels.ERROR)
 
--- Configuring native diagnostics
-vim.diagnostic.config({
-  virtual_text = {
-    source = 'always'
-  },
-  float = {
-    source = 'always'
-  }
-})
-
 ---List of the LSP server that don't need special configuration
 local servers = {
   'tsserver', -- Typescript
-  'html', -- HTML
-  'cssls', -- CSS
+  'html',     -- HTML
+  'cssls',    -- CSS
   'angularls' -- Angular
 }
 
 for _, server in ipairs(servers) do
-  lsp[server].setup({
+  lspconfig[server].setup({
     flags = flags,
-    capabilities = capabilities,
     on_attach = on_attach
   })
 end
 
 -- Vim
-require'lspconfig'.vimls.setup {
+lspconfig.vimls.setup {
   diagnostic = {
     enable = true
   },
@@ -83,37 +80,15 @@ require'lspconfig'.vimls.setup {
 }
 
 -- Lua
-require'lspconfig'.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT'
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {
-          'vim'
-        }
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file('', true)
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false
-      }
-    }
-  },
-  on_attach = on_attach
-}
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 -- PHP
-require'lspconfig'.phpactor.setup {
+lspconfig.phpactor.setup {
   on_attach = on_attach,
   init_options = {
     ['language_server_phpstan.enabled'] = false,
     ['language_server_psalm.enabled'] = false
   }
 }
+
+lsp.setup()

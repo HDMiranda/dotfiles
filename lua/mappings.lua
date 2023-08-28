@@ -51,12 +51,8 @@ map('n', '<UP>', '<CMD>resize +1<CR>')
 map('n', '<RIGHT>', '<C-w>>')
 
 -- Open NvimTree
--- Current File
-map('n', '<C-c>', '<CMD>NvimTreeFindFile<CR>')
-map('i', '<C-c>', '<ESC><CMD>NvimTreeFindFile<CR>')
--- Toggle
-map('n', '<C-o>', '<CMD>NvimTreeToggle<CR>')
-map('i', '<C-o>', '<ESC><CMD>NvimTreeToggle<CR>')
+map('n', '<C-o>', '<CMD>NvimTreeFindFileToggle<CR>')
+map('i', '<C-o>', '<ESC><CMD>NvimTreeFindFileToggle<CR>')
 
 -- Move line up and down in NORMAL and VISUAL modes
 -- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
@@ -87,9 +83,6 @@ map('n', '<leader>tb', ':Telescope buffers<CR>')
 
 -- Search for string
 map('n', '<leader>tf', ':Telescope live_grep<CR>')
-
--- Search for string in active buffers
-map('n', '<leader>tbf', ':Telescope live_grep({grep_open_files=true})<CR>')
 
 -- Fuzzy find changed files in git
 map('n', '<leader>tg', ':Telescope git_status<CR>')
