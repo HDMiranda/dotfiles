@@ -153,11 +153,13 @@ alias pp-biz="cd $PP_PATH/$PP_PREFIX-dev-ms-biz"
 alias pp-deeplink="cd $PP_PATH/$PP_PREFIX-dev-ms-deeplink"
 alias pp-dgdash="cd $PP_PATH/$PP_PREFIX-dev-ms-dgdash"
 alias pp-brcode-unique="cd $PP_PATH/ms-brcode-unique"
+alias pp-pj-charge="cd $PP_PATH/ms-pj-charge"
 alias pp-devtools="cd $PP_PATH/devtools"
 alias pp-helm-charts="cd $PP_PATH/helm-charts"
 alias pp-gatekeeper-providers="cd $PP_PATH/gatekeeper-providers"
 alias pp-login="aws-google-auth"
 alias pp-aws-ls="cat ~/.aws/config | grep '[' "
+alias cols="colima start --cpu 4 --memory 8"
 
 nx-sellerpanel () {
   if [[ -n "$1" ]]; then
@@ -172,3 +174,15 @@ nx-sellerpanel () {
         - nx-sellerpanel lint 'services' 'shared' 'charge' \n"
   fi
 }
+
+## Parquinho fire scripts
+
+# Disable Netskope app
+alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
+  && sudo launchctl unload /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+  && sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
+# Enable Netskope app
+alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
+  && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+  && open /Applications/Netskope\ Client.app"
