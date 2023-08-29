@@ -3,7 +3,15 @@
 --------------------
 local lsp = require('lsp-zero').preset("recommended")
 local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local U = require('configs.lsp.utilities')
+
+lsp.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = 'i'
+})
 
 lsp.ensure_installed({
   'tsserver',
@@ -16,8 +24,21 @@ lsp.ensure_installed({
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  lsp.default_keymaps({ buffer = bufnr })
+  -- lsp.default_keymaps({ buffer = bufnr })
+  U.mappings(bufnr)
 end)
+
+lsp.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['lua_ls'] = { 'lua' },
+    ['rust_analyzer'] = { 'rust' },
+    ['eslint'] = { 'javascript', 'typescript' },
+  }
+})
 
 ---Common perf related flags for all the LSP servers
 local flags = {
@@ -47,6 +68,7 @@ local servers = {
 for _, server in ipairs(servers) do
   lspconfig[server].setup({
     flags = flags,
+    capabilities = capabilities,
     on_attach = on_attach
   })
 end

@@ -50,7 +50,7 @@ return require('packer').startup({
         'kyazdani42/nvim-web-devicons'
       },
       config = function()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
       end
     }
     use {
@@ -66,30 +66,19 @@ return require('packer').startup({
     --------------------------------
     -- LSP, completion and syntax --
     --------------------------------
-    -- use('neovim/nvim-lspconfig')
-    -- use('hrsh7th/cmp-nvim-lsp')
-    -- use('hrsh7th/cmp-buffer')
-    -- use('hrsh7th/cmp-path')
-    -- use('hrsh7th/cmp-cmdline')
-    -- use('hrsh7th/nvim-cmp')
-    -- use('williamboman/mason.nvim')
-    -- use('hrsh7th/cmp-vsnip')
-    -- use('hrsh7th/vim-vsnip')
-    -- use('hrsh7th/cmp-nvim-lsp-signature-help')
-    --
     use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
       requires = {
         -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {'williamboman/mason.nvim'},           -- Optional
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        { 'neovim/nvim-lspconfig' },             -- Required
+        { 'williamboman/mason.nvim' },           -- Optional
+        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
         -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+        { 'hrsh7th/nvim-cmp' },     -- Required
+        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+        { 'L3MON4D3/LuaSnip' },     -- Required
       }
     }
 
@@ -157,9 +146,9 @@ return require('packer').startup({
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter'
       }, {
-        'sharkdp/fd',
-        after = 'nvim-treesitter'
-      }
+      'sharkdp/fd',
+      after = 'nvim-treesitter'
+    }
     })
 
     ------------------
@@ -224,9 +213,7 @@ return require('packer').startup({
     require('configs.gitsigns')
     require('configs.session-manager')
     require('configs.lsp.nvim-cmp')
-    require('configs.lsp.lsp-zero')
-    -- require('configs.lsp.utilities')
-    -- require('configs.lsp.language-servers')
+    require('configs.lsp.language-servers')
     require('configs.test')
     require('configs.which-key')
     require('configs.harpoon')
