@@ -187,3 +187,6 @@ alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
 alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
   && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
   && open /Applications/Netskope\ Client.app"
+
+alias r="ranger"
+alias R=". ranger"
