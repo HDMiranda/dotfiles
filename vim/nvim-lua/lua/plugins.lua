@@ -25,7 +25,7 @@ return require('packer').startup({
     -----------------------------
     use('PHSix/nvim-hybrid')
     use('RRethy/nvim-base16')
-
+    use({ 'catppuccin/nvim', as = 'catppuccin' })
     use({
       'kyazdani42/nvim-web-devicons',
       config = function()
@@ -35,10 +35,7 @@ return require('packer').startup({
 
     use({
       'nvim-lualine/lualine.nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-        opt = true
-      }
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
 
     --------
@@ -46,22 +43,14 @@ return require('packer').startup({
     --------
     use {
       'goolord/alpha-nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons'
-      },
+      requires = { 'kyazdani42/nvim-web-devicons' },
       config = function()
         require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
       end
     }
-    use {
-      'nvim-telescope/telescope-ui-select.nvim'
-    }
-    use {
-      'lewis6991/gitsigns.nvim'
-    }
-    use {
-      'folke/which-key.nvim',
-    }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'lewis6991/gitsigns.nvim' }
+    use { 'folke/which-key.nvim' }
 
     --------------------------------
     -- LSP, completion and syntax --

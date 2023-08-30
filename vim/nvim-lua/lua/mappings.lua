@@ -1,5 +1,5 @@
 local function map(mapType, key, command)
-    vim.keymap.set(mapType, key, command, { silent = true })
+  vim.keymap.set(mapType, key, command, { silent = true })
 end
 
 -- Fix * (Keep the cursor position, don't move to next match)
