@@ -183,6 +183,8 @@ alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
   && sudo launchctl unload /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
   && sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
 
+alias nskill="sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
 # Enable Netskope app
 alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
   && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
