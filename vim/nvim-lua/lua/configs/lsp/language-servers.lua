@@ -14,11 +14,20 @@ lsp.set_sign_icons({
 })
 
 lsp.ensure_installed({
-  'tsserver',
+  'angularls',
+  'bashls',
+  'cssls',
+  'docker_compose_language_service',
+  'dockerls',
   'eslint',
+  'html',
   'lua_ls',
-  'rust_analyzer',
   'phpactor',
+  'rust_analyzer',
+  'sqlls',
+  'tailwindcss',
+  'tsserver',
+  'yamlls',
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -34,6 +43,7 @@ lsp.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
+    ['cssls'] = { 'css', 'scss' },
     ['lua_ls'] = { 'lua' },
     ['rust_analyzer'] = { 'rust' },
     ['eslint'] = { 'javascript', 'typescript' },
@@ -50,7 +60,6 @@ local flags = {
 ---@param client table
 ---@param buf integer
 local function on_attach(client, buf)
-  U.formatting_callback(client, buf)
   U.mappings(buf)
 end
 
@@ -59,10 +68,15 @@ end
 
 ---List of the LSP server that don't need special configuration
 local servers = {
-  'tsserver', -- Typescript
-  'html',     -- HTML
-  'cssls',    -- CSS
-  'angularls' -- Angular
+  'bashls', -- bash
+  'cssls',  -- CSS
+  'docker_compose_language_service',
+  'dockerls',
+  'html',        -- HTML
+  'sqlls',
+  'tailwindcss', -- Tailwind
+  'tsserver',    -- Typescript
+  'yamlls',
 }
 
 for _, server in ipairs(servers) do
@@ -72,6 +86,12 @@ for _, server in ipairs(servers) do
     on_attach = on_attach
   })
 end
+
+-- Angular
+lspconfig.angularls.setup {
+  root_dir = lspconfig.util.root_pattern('angular.json', 'project.json'),
+  filetypes = { 'typescript', 'html', 'typescriptreact', 'typescript.tsx' }
+}
 
 -- Vim
 lspconfig.vimls.setup {

@@ -17,7 +17,6 @@ return require('packer').startup({
     ----------------------
     -- Required plugins --
     ----------------------
-
     use('nvim-lua/plenary.nvim')
 
     -----------------------------
@@ -45,7 +44,7 @@ return require('packer').startup({
       'goolord/alpha-nvim',
       requires = { 'kyazdani42/nvim-web-devicons' },
       config = function()
-        require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+        require('alpha').setup(require 'alpha.themes.dashboard'.config)
       end
     }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
@@ -55,6 +54,12 @@ return require('packer').startup({
     --------------------------------
     -- LSP, completion and syntax --
     --------------------------------
+    use({
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require('configs.nvim-colorizer')
+      end
+    })
     use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
@@ -134,10 +139,15 @@ return require('packer').startup({
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter'
-      }, {
-      'sharkdp/fd',
-      after = 'nvim-treesitter'
-    }
+      },
+      {
+        'sharkdp/fd',
+        after = 'nvim-treesitter'
+      },
+      {
+        'nvim-treesitter/nvim-treesitter-angular',
+        after = 'nvim-treesitter'
+      }
     })
 
     ------------------
@@ -196,16 +206,15 @@ return require('packer').startup({
     ------------------
     require('mason').setup()
     require('configs.alpha')
-    require('configs.treesitter')
-    require('configs.lualine')
-    require('configs.telescope')
     require('configs.gitsigns')
-    require('configs.session-manager')
-    require('configs.lsp.nvim-cmp')
-    require('configs.lsp.language-servers')
-    require('configs.test')
-    require('configs.which-key')
     require('configs.harpoon')
-    require('configs.undotree')
+    require('configs.lsp.language-servers')
+    require('configs.lsp.nvim-cmp')
+    require('configs.lualine')
+    require('configs.session-manager')
+    require('configs.telescope')
+    require('configs.test')
+    require('configs.treesitter')
+    require('configs.which-key')
   end
 })
