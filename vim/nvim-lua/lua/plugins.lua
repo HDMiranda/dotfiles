@@ -17,7 +17,6 @@ return require('packer').startup({
     ----------------------
     -- Required plugins --
     ----------------------
-
     use('nvim-lua/plenary.nvim')
 
     -----------------------------
@@ -25,7 +24,7 @@ return require('packer').startup({
     -----------------------------
     use('PHSix/nvim-hybrid')
     use('RRethy/nvim-base16')
-
+    use({ 'catppuccin/nvim', as = 'catppuccin' })
     use({
       'kyazdani42/nvim-web-devicons',
       config = function()
@@ -35,10 +34,7 @@ return require('packer').startup({
 
     use({
       'nvim-lualine/lualine.nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-        opt = true
-      }
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
 
     --------
@@ -46,37 +42,39 @@ return require('packer').startup({
     --------
     use {
       'goolord/alpha-nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons'
-      },
+      requires = { 'kyazdani42/nvim-web-devicons' },
       config = function()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        require('alpha').setup(require 'alpha.themes.dashboard'.config)
       end
     }
-    use {
-      'nvim-telescope/telescope-ui-select.nvim'
-    }
-    use {
-      'lewis6991/gitsigns.nvim'
-    }
-    use {
-      'folke/which-key.nvim',
-    }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'lewis6991/gitsigns.nvim' }
+    use { 'folke/which-key.nvim' }
 
     --------------------------------
     -- LSP, completion and syntax --
     --------------------------------
-    use('neovim/nvim-lspconfig')
-    use('hrsh7th/cmp-nvim-lsp')
-    use('hrsh7th/cmp-buffer')
-    use('hrsh7th/cmp-path')
-    use('hrsh7th/cmp-cmdline')
-    use('hrsh7th/nvim-cmp')
-    use('williamboman/mason.nvim')
-    use('jose-elias-alvarez/null-ls.nvim')
-    use('hrsh7th/cmp-vsnip')
-    use('hrsh7th/vim-vsnip')
-    use('hrsh7th/cmp-nvim-lsp-signature-help')
+    use({
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require('configs.nvim-colorizer')
+      end
+    })
+    use {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+      requires = {
+        -- LSP Support
+        { 'neovim/nvim-lspconfig' },             -- Required
+        { 'williamboman/mason.nvim' },           -- Optional
+        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+        -- Autocompletion
+        { 'hrsh7th/nvim-cmp' },     -- Required
+        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+        { 'L3MON4D3/LuaSnip' },     -- Required
+      }
+    }
 
     ----------
     -- Test --
@@ -98,13 +96,15 @@ return require('packer').startup({
     ---------------------
     use('kyazdani42/nvim-tree.lua')
     use('Shatur/neovim-session-manager')
+    use('theprimeagen/harpoon')
+    use('tpope/vim-fugitive')
 
     ------------------
     -- Fuzzy Finder --
     ------------------
     use({
       'nvim-telescope/telescope.nvim',
-      tag = '0.1.0',
+      tag = '0.1.2',
       requires = {
         {
           'nvim-lua/plenary.nvim'
@@ -117,7 +117,8 @@ return require('packer').startup({
     -----------------------------------
     use({
       {
-        'nvim-treesitter/nvim-treesitter'
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
       },
       {
         'nvim-treesitter/playground',
@@ -138,8 +139,13 @@ return require('packer').startup({
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter'
-      }, {
+      },
+      {
         'sharkdp/fd',
+        after = 'nvim-treesitter'
+      },
+      {
+        'nvim-treesitter/nvim-treesitter-angular',
         after = 'nvim-treesitter'
       }
     })
@@ -164,7 +170,6 @@ return require('packer').startup({
             relative = 'editor',
             border = 'rounded',
             width = 30,
-            height = 30,
             row = 1,
             col = 1
           }
@@ -194,21 +199,22 @@ return require('packer').startup({
       }
     })
 
+    use('mbbill/undotree')
+
     ------------------
     -- Initializers --
     ------------------
     require('mason').setup()
     require('configs.alpha')
-    require('configs.treesitter')
-    require('configs.lualine')
-    require('configs.telescope')
     require('configs.gitsigns')
-    require('configs.session-manager')
+    require('configs.harpoon')
+    require('configs.lsp.language-servers')
     require('configs.lsp.nvim-cmp')
-    require('configs.lsp.utilities')
-    require('configs.lsp.languages')
-    require('configs.lsp.null-ls')
+    require('configs.lualine')
+    require('configs.session-manager')
+    require('configs.telescope')
     require('configs.test')
+    require('configs.treesitter')
     require('configs.which-key')
   end
 })

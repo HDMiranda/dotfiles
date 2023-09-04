@@ -1,97 +1,124 @@
-local function map(mapType, key, command)
-    vim.keymap.set(mapType, key, command, { silent = true })
+local function map(mapType, key, command, opts)
+  vim.keymap.set(mapType, key, command, opts)
 end
 
+local opts = {
+  silent = true,
+  desc = ''
+}
+
 -- Fix * (Keep the cursor position, don't move to next match)
-map('n', '*', '*N')
+map('n', '*', '*N', opts)
 
 -- Fix n and N. Keeping cursor in center
-map('n', 'n', 'nzz')
-map('n', 'N', 'Nzz')
+map('n', 'n', 'nzz', opts)
+map('n', 'N', 'Nzz', opts)
 
 -- Quickly save the current buffer or all buffers
-map('n', '<leader>w', '<CMD>update<CR>')
-map('n', '<leader>W', '<CMD>wall<CR>')
+opts.desc = 'Force write'
+map('n', '<leader>w', ':w!<CR>', opts)
+opts.desc = 'Write all'
+map('n', '<leader>W', ':wall<CR>', opts)
 
 -- Quit neovim
-map('n', '<C-Q>', '<CMD>q<CR>')
-map('n', '<leader>wq', '<CMD>wqa<CR>')
-map('n', '<leader>Q', '<CMD>qa!<CR>')
+map('n', '<C-Q>', ':q<CR>', opts)
+opts.desc = 'Quit and write all'
+map('n', '<leader>wq', ':wqa<CR>', opts)
+opts.desc = 'Force quit and write all'
+map('n', '<leader>WQ', ':wqa!<CR>', opts)
+opts.desc = 'Force quit all'
+map('n', '<leader>Q', ':qa!<CR>', opts)
 
 -- leader-o/O inserts blank line below/above
-map('n', '<leader>o', 'o<ESC>')
-map('n', '<leader>O', 'O<ESC>')
+opts.desc = 'Add empty line before'
+map('n', '<leader>o', 'o<ESC>', opts)
+opts.desc = 'Add empty line after'
+map('n', '<leader>O', 'O<ESC>', opts)
 
 -- Move to the next/previous buffer
-map('n', '<leader>[', '<CMD>bp<CR>')
-map('n', '<leader>]', '<CMD>bn<CR>')
+opts.desc = 'Go to previous buffer'
+map('n', '<leader>[', ':bp<CR>', opts)
+opts.desc = 'Go to next buffer'
+map('n', '<leader>]', ':bn<CR>', opts)
 
 -- Move to last buffer
-map('n', "''", '<CMD>b#<CR>')
+opts.desc = 'Go to last buffer'
+map('n', '<leader>[[', ':b#<CR>', opts)
 
 -- Tabs
-map('n', "<C-t>", '<CMD>tabnew<CR>')
-map('n', "<C-t>q", '<CMD>tabclose<CR>')
+opts.desc = 'New tab'
+map('n', "<C-t>", ':tabnew<CR>', opts)
+opts.desc = 'Close tab'
+map('n', "<C-t>q", ':tabclose<CR>', opts)
 
 -- Window splits
-map('n', '<C-.>', '<CMD>vsplit<CR>')
-map('n', '<C-/>', '<CMD>split<CR>')
+opts.desc = 'Split vertically'
+map('n', '<C-.>', ':vsplit<CR>', opts)
+opts.desc = 'Split horizontally'
+map('n', '<C-/>', ':split<CR>', opts)
 
 -- Move between windows
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
 
 -- Resize windows
-map('n', '<LEFT>', '<C-w><')
-map('n', '<DOWN>', '<CMD>resize -1<CR>')
-map('n', '<UP>', '<CMD>resize +1<CR>')
-map('n', '<RIGHT>', '<C-w>>')
+map('n', '<LEFT>', '<C-w><', opts)
+map('n', '<DOWN>', ':resize -1<CR>', opts)
+map('n', '<UP>', ':resize +1<CR>', opts)
+map('n', '<RIGHT>', '<C-w>>', opts)
 
 -- Open NvimTree
 -- Current File
-map('n', '<C-c>', '<CMD>NvimTreeFindFile<CR>')
-map('i', '<C-c>', '<ESC><CMD>NvimTreeFindFile<CR>')
+map('n', '<C-c>', ':NvimTreeFindFile<CR>', opts)
+map('i', '<C-c>', '<ESC>:NvimTreeFindFile<CR>', opts)
 -- Toggle
-map('n', '<C-o>', '<CMD>NvimTreeToggle<CR>')
-map('i', '<C-o>', '<ESC><CMD>NvimTreeToggle<CR>')
+map('n', '<C-o>', ':NvimTreeToggle<CR>', opts)
+map('i', '<C-o>', '<ESC>:NvimTreeToggle<CR>', opts)
 
 -- Move line up and down in NORMAL and VISUAL modes
 -- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
-map('n', '<A-j>', '<CMD>move .+1<CR>')
-map('n', '<A-k>', '<CMD>move .-2<CR>')
+map('n', '<A-j>', ':move .+1<CR>', opts)
+map('n', '<A-k>', ':move .-2<CR>', opts)
 map('x', '<A-j>', ":move '>+1<CR>gv=gv")
 map('x', '<A-k>', ":move '<-2<CR>gv=gv")
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
-map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
-map('x', 'A', ':<C-U>normal! ggVG<CR>')
+map('o', 'A', ':<C-U>normal! mzggVG<CR>`z', opts)
+map('x', 'A', ':<C-U>normal! ggVG<CR>', opts)
 
 -- Sessions
-map('n', '<leader>s', ':SessionManager load_last_session<CR>')
-map('n', '<leader>sl', ':SessionManager load_session<CR>')
+opts.desc = 'Load last session'
+map('n', '<leader>s', ':SessionManager load_last_session<CR>', opts)
+opts.desc = 'Select session to load'
+map('n', '<leader>sl', ':SessionManager load_session<CR>', opts)
 
 -- Start screen (Alpha)
-map('n', '<C-s>', ':Alpha<CR>')
+opts.desc = 'Show startup'
+map('n', '<C-s>', ':Alpha<CR>', opts)
 
 -- Telescope
-map('n', '<leader>tm', ':Telescope marks<CR>')
+opts.desc = 'Marks list'
+map('n', '<leader>tm', ':Telescope marks<CR>', opts)
+opts.desc = 'Help tags list'
+map('n', '<leader>th', ':Telescope help_tags<CR>', opts)
+opts.desc = 'Buffers list'
+map('n', '<leader>tb', ':Telescope buffers<CR>', opts)                            -- Fuzzy find active buffers
+opts.desc = 'Search by string'
+map('n', '<leader>tf', ':Telescope live_grep<CR>', opts)                          -- Search for string
+opts.desc = 'Search by string in active buffers'
+map('n', '<leader>tbf', ':Telescope live_grep({grep_open_files=true})<CR>', opts) -- Search for string in active buffers
+opts.desc = 'Git status'
+map('n', '<leader>tg', ':Telescope git_status<CR>', opts)                         -- Fuzzy find changed files in git
+opts.desc = 'Git commits'
+map('n', '<leader>tg', ':Telescope git_commits<CR>', opts)                        -- Fuzzy find commits in git
 
-map('n', '<leader>th', ':Telescope help_tags<CR>')
+-- Git (Fugitive)
+opts.desc = 'Git'
+map('n', '<leader>G', ':Git<CR>', opts)
 
--- Fuzzy find active buffers
-map('n', '<leader>tb', ':Telescope buffers<CR>')
-
--- Search for string
-map('n', '<leader>tf', ':Telescope live_grep<CR>')
-
--- Search for string in active buffers
-map('n', '<leader>tbf', ':Telescope live_grep({grep_open_files=true})<CR>')
-
--- Fuzzy find changed files in git
-map('n', '<leader>tg', ':Telescope git_status<CR>')
-
--- List all symbols on the current doc
-map('n', '<leader>so', ':Telescope lsp_document_symbols<CR>')
+-- Undotree
+opts.desc = 'Undotree'
+map('n', '<leader>u', ':UndotreeToggle<CR>', opts)

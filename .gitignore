@@ -1,6 +1,6 @@
 packer_compiled.lua
 .DS_Store
 
-/vscode
-/vim
+vim/nvim-lua/plugin
+.vim/
 .orig

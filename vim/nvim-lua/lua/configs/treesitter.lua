@@ -9,8 +9,6 @@ require('nvim-treesitter.configs').setup({
     'go',
     'javascript',
     'typescript',
-    'tsx',
-    'vue',
     'yaml',
     'vim',
     'sql',
@@ -23,7 +21,6 @@ require('nvim-treesitter.configs').setup({
     'bash',
     'regex',
     'php',
-    'python',
     'graphql',
     'svelte'
   },
