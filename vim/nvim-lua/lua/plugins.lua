@@ -147,10 +147,6 @@ return require('packer').startup({
         'sharkdp/fd',
         after = 'nvim-treesitter'
       },
-      {
-        'nvim-treesitter/nvim-treesitter-angular',
-        after = 'nvim-treesitter'
-      }
     })
 
     ------------------
