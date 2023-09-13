@@ -25,6 +25,7 @@ lsp.ensure_installed({
   'phpactor',
   'rust_analyzer',
   'sqlls',
+  'svelte',
   'tailwindcss',
   'tsserver',
   'yamlls',
@@ -72,8 +73,8 @@ local servers = {
   'cssls',  -- CSS
   'docker_compose_language_service',
   'dockerls',
-  'html',        -- HTML
   'sqlls',
+  'svelte',
   'tailwindcss', -- Tailwind
   'tsserver',    -- Typescript
   'yamlls',
@@ -86,6 +87,11 @@ for _, server in ipairs(servers) do
     on_attach = on_attach
   })
 end
+
+-- HTML
+lspconfig.html.setup {
+  filetypes = { 'html', 'svelte' }
+}
 
 -- Angular
 lspconfig.angularls.setup {
