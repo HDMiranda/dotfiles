@@ -192,3 +192,6 @@ alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
 
 alias r="ranger"
 alias R=". ranger"
+
+alias vim="nvim"
+alias v="nvim"
