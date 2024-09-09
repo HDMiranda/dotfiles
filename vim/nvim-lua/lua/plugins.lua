@@ -82,6 +82,7 @@ return require('packer').startup({
     use {
       'nvim-neotest/neotest',
       requires = {
+        'nvim-neotest/nvim-nio',
         'nvim-lua/plenary.nvim',
         'vim-test/vim-test',
         'nvim-treesitter/nvim-treesitter',
@@ -90,6 +91,14 @@ return require('packer').startup({
         'nvim-neotest/neotest-vim-test'
       }
     }
+
+    use({
+      'vim-test/vim-test',
+      dependencies = {
+        'preservim/vimux'
+      },
+      vim.cmd("let test#strategy = 'vimux'")
+    })
 
     ---------------------
     -- File management --
@@ -137,10 +146,6 @@ return require('packer').startup({
         after = 'nvim-treesitter'
       },
       {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        after = 'nvim-treesitter'
-      },
-      {
         'sharkdp/fd',
         after = 'nvim-treesitter'
       },
@@ -154,12 +159,12 @@ return require('packer').startup({
     -- Plugin Setup --
     ------------------
     require('nvim-tree').setup({
+      hijack_cursor = true,
       view = {
         adaptive_size = true,
         centralize_selection = false,
         width = 30,
-        hide_root_folder = false,
-        side = 'left',
+        side = 'right',
         preserve_window_proportions = false,
         number = false,
         relativenumber = true,
@@ -197,6 +202,11 @@ return require('packer').startup({
           event = 'BufRead'
         }
       }
+    })
+
+    use('JoosepAlviste/nvim-ts-context-commentstring')
+    require('ts_context_commentstring').setup({
+      enable_autocmd = false,
     })
 
     use('mbbill/undotree')

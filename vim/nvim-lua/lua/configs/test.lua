@@ -5,10 +5,11 @@ require('neotest').setup({
         'vim',
         'lua'
       },
-      -- allow_file_types = {
-      --   'haskell',
-      --   'elixir'
-      -- }
+      allow_file_types = {
+        'ts'
+        --   'haskell',
+        --   'elixir'
+      }
     })
   }
 })

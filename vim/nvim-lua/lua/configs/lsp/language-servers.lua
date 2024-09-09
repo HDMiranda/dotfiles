@@ -26,7 +26,7 @@ lsp.ensure_installed({
   'rust_analyzer',
   'sqlls',
   'tailwindcss',
-  'tsserver',
+  'ts_ls',
   'yamlls',
 })
 
@@ -75,7 +75,7 @@ local servers = {
   'html',        -- HTML
   'sqlls',
   'tailwindcss', -- Tailwind
-  'tsserver',    -- Typescript
+  'ts_ls',       -- Typescript
   'yamlls',
 }
 
