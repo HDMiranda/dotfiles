@@ -70,7 +70,6 @@ end
 
 colorize('catppuccin')
 
-o.termguicolors = true
 o.background = 'dark'
 
 -- Do not save when switching buffers
@@ -137,7 +136,3 @@ o.splitbelow = true
 -- o.foldlevelstart = 99
 -- o.foldnestmax = 3
 -- o.foldminlines = 1
-
--- Map <leader> to comma
-g.mapleader = ','
-g.maplocalleader = ','
