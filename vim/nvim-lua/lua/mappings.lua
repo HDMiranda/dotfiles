@@ -47,9 +47,9 @@ map('n', '<leader>[[', ':b#<CR>', opts)
 
 -- Tabs
 opts.desc = 'New tab'
-map('n', "<C-t>", ':tabnew<CR>', opts)
+map('n', '<C-t>', ':tabnew<CR>', opts)
 opts.desc = 'Close tab'
-map('n', "<C-t>q", ':tabclose<CR>', opts)
+map('n', '<C-t>q', ':tabclose<CR>', opts)
 
 -- Window splits
 opts.desc = 'Split vertically'
@@ -74,8 +74,8 @@ map('n', '<RIGHT>', '<C-w>>', opts)
 map('n', '<C-c>', ':NvimTreeFindFile<CR>', opts)
 map('i', '<C-c>', '<ESC>:NvimTreeFindFile<CR>', opts)
 -- Toggle
-map('n', '<C-o>', ':NvimTreeToggle<CR>', opts)
-map('i', '<C-o>', '<ESC>:NvimTreeToggle<CR>', opts)
+map('n', '<C-a>', ':NvimTreeToggle<CR>', opts)
+map('i', '<C-a>', '<ESC>:NvimTreeToggle<CR>', opts)
 
 -- Move line up and down in NORMAL and VISUAL modes
 -- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
@@ -94,10 +94,6 @@ opts.desc = 'Load last session'
 map('n', '<leader>s', ':SessionManager load_last_session<CR>', opts)
 opts.desc = 'Select session to load'
 map('n', '<leader>sl', ':SessionManager load_session<CR>', opts)
-
--- Start screen (Alpha)
-opts.desc = 'Show startup'
-map('n', '<C-s>', ':Alpha<CR>', opts)
 
 -- Telescope
 opts.desc = 'Marks list'
