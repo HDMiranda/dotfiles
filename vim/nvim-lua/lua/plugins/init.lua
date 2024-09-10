@@ -10,8 +10,6 @@ return {
   'PHSix/nvim-hybrid',
   'RRethy/nvim-base16',
 
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-
   {
     'kyazdani42/nvim-web-devicons',
     config = function()
@@ -33,14 +31,8 @@ return {
   'williamboman/mason-lspconfig.nvim', -- Optional
 
   {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('configs.nvim-colorizer')
-    end
-  },
-  {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v4.x',
     dependencies = {
       -- LSP Support
       'neovim/nvim-lspconfig', -- Required
@@ -49,67 +41,17 @@ return {
       'hrsh7th/nvim-cmp',     -- Required
       'hrsh7th/cmp-nvim-lsp', -- Required
       'L3MON4D3/LuaSnip',     -- Required
-    }
+    },
+    config = function()
+      require('config.lsp.language-servers')
+    end
   },
-
-  ----------
-  -- Test --
-  ----------
-  {
-    'nvim-neotest/neotest',
-    dependencies = {
-      'nvim-neotest/nvim-nio',
-      'nvim-lua/plenary.nvim',
-      'vim-test/vim-test',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
-      'haydenmeade/neotest-jest',
-      'nvim-neotest/neotest-vim-test'
-    }
-  },
-
-  -- {
-  --   'vim-test/vim-test',
-  --   dependencies = {
-  --     'preservim/vimux'
-  --   },
-  --   vim.cmd("let test#strategy = 'vimux'")
-  -- },
 
   ---------------------
   -- File management --
   ---------------------
   'kyazdani42/nvim-tree.lua',
-  'Shatur/neovim-session-manager',
-  'theprimeagen/harpoon',
   'tpope/vim-fugitive',
-
-  ------------------
-  -- Fuzzy Finder --
-  ------------------
-  {
-    'nvim-telescope/telescope.nvim',
-    version = '0.1.2',
-    dependencies = {
-      'nvim-lua/plenary.nvim'
-    }
-  },
-
-  -----------------------------------
-  -- Treesitter: Better Highlights --
-  -----------------------------------
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    dependencies = {
-      'nvim-treesitter/playground',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'windwp/nvim-ts-autotag',
-      'sharkdp/fd',
-      'nvim-treesitter/nvim-treesitter-angular',
-    },
-  },
 
   ------------------
   -- Plugin Setup --
@@ -151,13 +93,7 @@ return {
   --------------
   -- Editing --
   --------------
-  {
-    'numToStr/Comment.nvim',
-    event = 'BufRead',
-    config = function()
-      require('configs.comment')
-    end
-  },
+  { 'numToStr/Comment.nvim', event = 'BufRead' },
 
   {
     'tpope/vim-surround',
@@ -180,19 +116,4 @@ return {
   },
 
   'mbbill/undotree',
-
-  ------------------
-  -- Initializers --
-  ------------------
-  -- require('configs.alpha'),
-  -- require('configs.gitsigns'),
-  -- require('configs.harpoon'),
-  -- require('configs.lsp.language-servers'),
-  -- require('configs.lsp.nvim-cmp'),
-  -- require('configs.lualine'),
-  -- require('configs.session-manager'),
-  -- require('configs.telescope'),
-  -- require('configs.test'),
-  -- require('configs.treesitter'),
-  -- require('configs.which-key'),
 }
