@@ -118,3 +118,14 @@ map('n', '<leader>G', ':Git<CR>', opts)
 -- Undotree
 opts.desc = 'Undotree'
 map('n', '<leader>u', ':UndotreeToggle<CR>', opts)
+
+-- TodoComments
+opts.desc = 'List TODOs'
+map('n', '<leader>tt', ':TodoTelescope<CR>', opts)
+map('n', ']t', function()
+  require('todo-comments').jump_next({ keywords = { 'ERROR', 'WARNING', 'FIX' } })
+end, { desc = 'Next todo comment' })
+
+map('n', '[t', function()
+  require('todo-comments').jump_prev({ keywords = { 'ERROR', 'WARNING', 'FIX' } })
+end, { desc = 'Previous todo comment' })
