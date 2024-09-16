@@ -200,6 +200,10 @@ alias v="nvim"
 export PATH="/Users/hardy.miranda/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 #
+
+# QMK
+export PATH="/home/hardy/.cache/yay/qmk-git/pkg/qmk-git/usr/bin:$PATH"
+
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
