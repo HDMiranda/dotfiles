@@ -10,7 +10,6 @@ then
 else
   echo "ZSH config: File already exists!"
   ln -frsi "./shell/zsh/.zshrc" "${HOME}/.zshrc"
-  echo "Updated!"
 fi
 
 ## Set reference for starship
@@ -21,7 +20,12 @@ then
 else
   echo "Starship config: File already exists!"
   ln -frsi "./shell/starship/starship.toml" "${HOME}/.config/starship.toml"
-  echo "Updated!"
+fi
+
+if ! [ -f "${HOME}/.tmux/plugins/tpm" ]
+then
+  echo "Installing Tmux Plugin Manager [TPM]"
+  git clone "https://github.com/tmux-plugins/tpm" "${HOME}/.tmux/plugins/tpm"
 fi
 
 ## Set reference for tmux
@@ -32,7 +36,6 @@ then
 else
   echo "TMux config: File already exists!"
   ln -frsi "./shell/tmux/.tmux.conf" "${HOME}/.tmux.conf"
-  echo "Updated!"
 fi
 
 ## Set reference for gitmux
@@ -43,5 +46,4 @@ then
 else
   echo "Gitmux config: File already exists!"
   ln -frsi "./shell/tmux/.gitmux.conf" "${HOME}/.gitmux.conf"
-  echo "Updated!"
 fi
