@@ -68,7 +68,7 @@ ZSH_THEME="garyblessington"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -177,30 +177,18 @@ nx-sellerpanel () {
   fi
 }
 
-## Parquinho fire scripts
-
-# Disable Netskope app
-alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
-  && sudo launchctl unload /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
-  && sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
-
-alias nskill="sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
-
-# Enable Netskope app
-alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
-  && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
-  && open /Applications/Netskope\ Client.app"
-
 alias r="ranger"
 alias R=". ranger"
 
 alias vim="nvim"
 alias v="nvim"
 
+# Dotfiles
+alias df="cd ${HOME}/dotfiles"
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/hardy.miranda/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-#
 
 # Lazygit base config
 export CONFIG_DIR="$HOME/.config/lazygit"
@@ -208,6 +196,24 @@ export CONFIG_DIR="$HOME/.config/lazygit"
 # Starship base config
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
+# QMK
+export PATH="/home/hardy/.cache/yay/qmk-git/pkg/qmk-git/usr/bin:$PATH"
+
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [[ $(uname | awk '{print toupper($0)}') != 'LINUX' ]]; then
+  ## Parquinho fire scripts
+
+  # Disable Netskope app
+  alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
+    && sudo launchctl unload /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+    && sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
+  alias nskill="sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
+  # Enable Netskope app
+  alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
+    && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+    && open /Applications/Netskope\ Client.app"
+fi
