@@ -99,6 +99,7 @@ fi
 #
 alias zshconfig="nvim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
+alias lzg="lazygit"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vpn="~/.connectVPN.sh"
 alias gcr='git checkout release'
@@ -200,6 +201,13 @@ alias v="nvim"
 export PATH="/Users/hardy.miranda/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 #
+
+# Lazygit base config
+export CONFIG_DIR="$HOME/.config/lazygit"
+
+# Starship base config
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
