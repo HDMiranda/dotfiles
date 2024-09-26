@@ -26,6 +26,15 @@ $cmd_duration\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
+# All commands executed by starship (in milliseconds)
+command_timeout = 3600000
+
+# Timeout for starship to scan files (in milliseconds).
+scan_timeout = 500
+
+# Add blank line between prompts
+add_newline = true
+
 palette = 'gruvbox_dark'
 
 [palettes.gruvbox_dark]
