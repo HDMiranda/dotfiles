@@ -54,18 +54,18 @@ disabled = false
 style = "bg:color_orange fg:color_fg0"
 
 [os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Debian = "󰣚"
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = "󰀵 "
+Manjaro = " "
+Linux = "󰌽 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Debian = "󰣚 "
 
 [username]
 show_always = true
@@ -96,18 +96,18 @@ conflicted = '󱠿 '
 ahead = '⇡${count} '
 diverged = '󰦻 ${ahead_count}⇣${behind_count} '
 behind = '⇣ ${count} '
-up_to_date = '  '
-untracked = '󰾋  '
-stashed = '  '
-modified = '  '
+up_to_date = ' '
+untracked = '[󰾋 ](fg:color_orange bg:color_aqua)'
+stashed = '[ ](fg:color_bg3 bg:color_aqua)'
+modified = '[ ](fg:color_orange bg:color_aqua)'
 staged = ' \[$count\] '
-renamed = '󰑕 '
-deleted = '🗑 '
+renamed = '[󰑕 ](fg:color_orange bg:color_aqua)'
+deleted = '[🗑 ](fg:color_red bg:color_aqua)'
 style = "bg:color_aqua"
 format = '[[ ($all_status$ahead_behind)](fg:color_fg0 bold bg:color_aqua)]($style)'
 
 [nodejs]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
@@ -117,17 +117,17 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [rust]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [golang]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version)( $mod_version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [php]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
@@ -137,12 +137,12 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [kotlin]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [haskell]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
@@ -152,12 +152,12 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [python]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [docker_context]
-symbol = ""
+symbol = " "
 style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
