@@ -61,6 +61,7 @@ require('mason-lspconfig').setup({
     'phpactor',
     'rust_analyzer',
     'sqlls',
+    'svelte',
     'tailwindcss',
     'ts_ls',
     'yamlls',
