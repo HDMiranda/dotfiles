@@ -92,15 +92,11 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 alias zshconfig="nvim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
 alias lzg="lazygit"
-# alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vpn="~/.connectVPN.sh"
 alias gcr='git checkout release'
 alias gglog='git log --graph --oneline --decorate --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all | emojify | less -r'
@@ -130,8 +126,8 @@ export PATH="/Users/hardy.miranda/.gem/ruby/2.6.0/bin:$PATH"
 export PATH="/home/hardy/.local/share/gem/ruby/3.0.0/bin:$PATH"
 # RVM
 export PATH="/home/hardy/.cache/yay/rvm/src/rvm/:$PATH"
-export PATH="/usr/local/rvm:$PATH"
-export rvm_path="/usr/local/rvm"
+export RVM_PATH="/usr/local/rvm"
+export PATH="$RVM_PATH:$PATH"
 # source /etc/profile.d/rvm.sh
 
 # Fera
@@ -183,8 +179,30 @@ alias R=". ranger"
 alias vim="nvim"
 alias v="nvim"
 
+# TMux
+alias tmd="tmux detach"
+alias tma="tmux attach -t"
+alias tmns="tmux new-session -s"
+alias tmls="tmux list-sessions"
+
 # Dotfiles
 alias df="cd ${HOME}/dotfiles"
+
+# Parquinho fire scripts
+if [[ $(uname | awk '{print toupper($0)}') != 'LINUX' ]]; then
+
+  # Disable Netskope app
+  alias nsoff="sudo chmod -x /Applications/Netskope\ Client.app \
+    && sudo launchctl unload /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+    && sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
+  alias nskill="sudo kill $(launchctl list | grep netskope | awk '{if($1 != "-") {print $1}}')"
+
+  # Enable Netskope app
+  alias nson="sudo chmod +x /Applications/Netskope\ Client.app \
+    && sudo launchctl load /Library/LaunchDaemons/com.netskope.client.auxsvc.plist /Library/LaunchDaemons/com.netskope.epdlp.client.plist \
+    && open /Applications/Netskope\ Client.app"
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/hardy.miranda/.rd/bin:$PATH"
