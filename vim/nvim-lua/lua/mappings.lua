@@ -101,15 +101,15 @@ map('n', '<leader>tm', ':Telescope marks<CR>', opts)
 opts.desc = 'Help tags list'
 map('n', '<leader>th', ':Telescope help_tags<CR>', opts)
 opts.desc = 'Buffers list'
-map('n', '<leader>tb', ':Telescope buffers<CR>', opts)                            -- Fuzzy find active buffers
+map('n', '<leader>tb', ':Telescope buffers<CR>', opts)                                                   -- Fuzzy find active buffers
 opts.desc = 'Search by string'
-map('n', '<leader>tf', ':Telescope live_grep<CR>', opts)                          -- Search for string
+map('n', '<leader>tf', ':Telescope live_grep<CR>', opts)                                                 -- Search for string
 opts.desc = 'Search by string in active buffers'
-map('n', '<leader>tbf', ':Telescope live_grep({grep_open_files=true})<CR>', opts) -- Search for string in active buffers
+map('n', '<leader>tbf', ":lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>", opts) -- Search for string in active buffers
 opts.desc = 'Git status'
-map('n', '<leader>tg', ':Telescope git_status<CR>', opts)                         -- Fuzzy find changed files in git
+map('n', '<leader>tgs', ':Telescope git_status<CR>', opts)                                               -- Fuzzy find changed files in git
 opts.desc = 'Git commits'
-map('n', '<leader>tg', ':Telescope git_commits<CR>', opts)                        -- Fuzzy find commits in git
+map('n', '<leader>tg', ':Telescope git_commits<CR>', opts)                                               -- Fuzzy find commits in git
 
 -- Git (Fugitive)
 opts.desc = 'Git'

@@ -14,6 +14,13 @@ return {
         layout_config = {
           prompt_position = 'top'
         },
+        preview = {
+          filesize_limit = 5, --MB
+        },
+        file_ignore_patterns = {
+          '^node_modules/',
+          '^.git/',
+        },
         vimgrep_arguments = {
           'rg',
           '--color=never',
@@ -22,16 +29,19 @@ return {
           '--line-number',
           '--column',
           '--smart-case',
-          '--hidden'
+          '--hidden',
+          '--trim',
         },
         mappings = {
           i = {
-            ['<ESC>'] = actions.close,
+            -- ['<ESC>'] = actions.close,
             ['<C-j>'] = actions.move_selection_next,
             ['<C-k>'] = actions.move_selection_previous,
-            ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
-            ['<C-s>'] = actions.send_selected_to_qflist,
-            ['<C-q>'] = actions.send_to_qflist
+            ['<TAB>'] = actions.toggle_selection,
+            ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
+            ['<C-q>o'] = actions.open_qflist,
+            ['<C-q>a'] = actions.send_to_qflist,
+            ['xx'] = actions.delete_buffer + actions.move_to_top,
           }
         }
       },
